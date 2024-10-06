@@ -36,7 +36,7 @@ func main() {
 	fmt.Println(footballer.Goat())
 	fmt.Println(footballer2.Goat())
 
-	//	Empty Interfaces
+	//	Empty Interfaces - Can hold values of any types
 	printVals(10)
 	printVals("Atmik Shetty")
 	printVals(99.9999999)

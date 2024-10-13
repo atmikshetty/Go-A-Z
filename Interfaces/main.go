@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Interfaces is a type which defines a set of methods other types must implement, it does not proivde any implementation, i.e. left to the other methods
+// Interfaces is a type which defines a set of methods other types must implement, it does not provide any implementation, i.e. left to the other methods
 
 type football interface {
 	Goat() string

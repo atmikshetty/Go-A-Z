@@ -174,36 +174,55 @@ func main() {
 	////	Searching for index in the sorted string slice
 	//fmt.Println(sort.SearchStrings(names, "Messi"))
 
-	//	Loops
-	//	While using for
-	x := 0
-	for x <= 10 {
-		fmt.Println(" x is", x)
-		x++
+	////	Loops
+	////	While using for
+	//x := 0
+	//for x <= 10 {
+	//	fmt.Println(" x is", x)
+	//	x++
+	//}
+	//
+	////	For Loop
+	//for i := 0; i < 10; i++ {
+	//	if i%2 == 0 {
+	//		fmt.Println(i, "is Even")
+	//	} else {
+	//		fmt.Println(i, "is Odd")
+	//	}
+	//}
+	//
+	////	For strings
+	//names5 := []string{"Atmik", "Shetty", "Leo", "Messi"}
+	//for i := 0; i < len(names5); i++ {
+	//	fmt.Println(names5[i])
+	//}
+	//
+	////	Python like for loop
+	//for index, value := range names5 {
+	//	fmt.Println(index, value)
+	//}
+	//
+	////	to avoid indexes or anything we can use this "_"
+	//for _, value := range names5 {
+	//	fmt.Println(value)
+	//}
+
+	//	Booleans and Conditionals
+
+	marks := 36
+	fmt.Println(marks <= 50)
+	fmt.Println(marks >= 50)
+	fmt.Println(marks == 50)
+	fmt.Println(marks != 50)
+
+	//	If else
+	voting := 21
+	if voting > 18 {
+		fmt.Println("Can vote")
+	} else if voting == 18 {
+		fmt.Println("Can vote")
+	} else {
+		fmt.Println("Cannot vote")
 	}
 
-	//	For Loop
-	for i := 0; i < 10; i++ {
-		if i%2 == 0 {
-			fmt.Println(i, "is Even")
-		} else {
-			fmt.Println(i, "is Odd")
-		}
-	}
-
-	//	For strings
-	names5 := []string{"Atmik", "Shetty", "Leo", "Messi"}
-	for i := 0; i < len(names5); i++ {
-		fmt.Println(names5[i])
-	}
-
-	//	Python like for loop
-	for index, value := range names5 {
-		fmt.Println(index, value)
-	}
-
-	//	to avoid indexes or anything we can use this "_"
-	for _, value := range names5 {
-		fmt.Println(value)
-	}
 }

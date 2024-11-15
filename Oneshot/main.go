@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 // Theory: Read through this once
@@ -207,22 +208,41 @@ func main() {
 	//	fmt.Println(value)
 	//}
 
-	//	Booleans and Conditionals
+	////	Booleans and Conditionals
+	//
+	//marks := 36
+	//fmt.Println(marks <= 50)
+	//fmt.Println(marks >= 50)
+	//fmt.Println(marks == 50)
+	//fmt.Println(marks != 50)
+	//
+	////	If else
+	//voting := 21
+	//if voting > 18 {
+	//	fmt.Println("Can vote")
+	//} else if voting == 18 {
+	//	fmt.Println("Can vote")
+	//} else {
+	//	fmt.Println("Cannot vote")
+	//}
 
-	marks := 36
-	fmt.Println(marks <= 50)
-	fmt.Println(marks >= 50)
-	fmt.Println(marks == 50)
-	fmt.Println(marks != 50)
+	//	Functions
+	hello("Atmik Shetty")
+	hello("Leo Messi")
+	cycleNames([]string{"Atmik Shetty", "Leo Messi"}, hello) // pass a slice and a function, note that () is not required since cycleNames is already handling the function call
+	fmt.Println(circleArea(3))
+}
 
-	//	If else
-	voting := 21
-	if voting > 18 {
-		fmt.Println("Can vote")
-	} else if voting == 18 {
-		fmt.Println("Can vote")
-	} else {
-		fmt.Println("Cannot vote")
+func hello(name string) {
+	fmt.Println("Hello", name)
+}
+
+func cycleNames(names []string, f func(string)) {
+	for _, name := range names {
+		f(name)
 	}
+}
 
+func circleArea(radius float64) float64 {
+	return math.Pi * radius * radius
 }

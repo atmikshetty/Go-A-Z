@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
-	"strings"
 )
 
 // Theory: Read through this once
@@ -143,36 +141,69 @@ func main() {
 	//rangeThree := scores[:5] // from start to 5
 	//fmt.Println(rangeThree)
 
-	//	The standard Library
-	greetings := "Hello, How are you today!!!"
-	fmt.Println(greetings)
+	////	The standard Library
+	//greetings := "Hello, How are you today!!!"
+	//fmt.Println(greetings)
+	//
+	////	Strings package
+	//fmt.Println(strings.Contains(greetings, "shetty")) // searches within the string
+	//
+	//fmt.Println(strings.ReplaceAll(greetings, "Hello", "Atmik")) // replace occurences
+	//
+	//fmt.Println(strings.ToUpper(greetings)) // converts to upper
+	//
+	//fmt.Println(strings.Index(greetings, "ll")) // return the index
+	//
+	//fmt.Println(strings.Split(greetings, " ")) // returns a slice of elements
+	//
+	////Sorting numbers
+	//ages := []int{45, 80, 10, 2, 4, 7, 21, 32, 64, 69}
+	//fmt.Println("Before sorting:", ages)
+	//sort.Ints(ages)
+	//fmt.Println("After sorting:", ages)
+	//
+	////	Searching for index in the sorted slice
+	//index := sort.SearchInts(ages, 4)
+	//fmt.Println(index)
+	//
+	////	Sorting Strings
+	//names := []string{"Atmik", "Shetty", "Leo", "Messi"}
+	//sort.Strings(names)
+	//fmt.Println(names)
+	//
+	////	Searching for index in the sorted string slice
+	//fmt.Println(sort.SearchStrings(names, "Messi"))
 
-	//	Strings package
-	fmt.Println(strings.Contains(greetings, "shetty")) // searches within the string
+	//	Loops
+	//	While using for
+	x := 0
+	for x <= 10 {
+		fmt.Println(" x is", x)
+		x++
+	}
 
-	fmt.Println(strings.ReplaceAll(greetings, "Hello", "Atmik")) // replace occurences
+	//	For Loop
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			fmt.Println(i, "is Even")
+		} else {
+			fmt.Println(i, "is Odd")
+		}
+	}
 
-	fmt.Println(strings.ToUpper(greetings)) // converts to upper
+	//	For strings
+	names5 := []string{"Atmik", "Shetty", "Leo", "Messi"}
+	for i := 0; i < len(names5); i++ {
+		fmt.Println(names5[i])
+	}
 
-	fmt.Println(strings.Index(greetings, "ll")) // return the index
+	//	Python like for loop
+	for index, value := range names5 {
+		fmt.Println(index, value)
+	}
 
-	fmt.Println(strings.Split(greetings, " ")) // returns a slice of elements
-
-	//Sorting numbers
-	ages := []int{45, 80, 10, 2, 4, 7, 21, 32, 64, 69}
-	fmt.Println("Before sorting:", ages)
-	sort.Ints(ages)
-	fmt.Println("After sorting:", ages)
-
-	//	Searching for index in the sorted slice
-	index := sort.SearchInts(ages, 4)
-	fmt.Println(index)
-
-	//	Sorting Strings
-	names := []string{"Atmik", "Shetty", "Leo", "Messi"}
-	sort.Strings(names)
-	fmt.Println(names)
-
-	//	Searching for index in the sorted string slice
-	fmt.Println(sort.SearchStrings(names, "Messi"))
+	//	to avoid indexes or anything we can use this "_"
+	for _, value := range names5 {
+		fmt.Println(value)
+	}
 }

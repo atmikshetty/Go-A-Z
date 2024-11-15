@@ -233,10 +233,22 @@ func main() {
 	//cycleNames([]string{"Atmik Shetty", "Leo Messi"}, hello) // pass a slice and a function, note that () is not required since cycleNames is already handling the function call
 	//fmt.Println(circleArea(3))
 
-	//	Functions with Multiple return values
-	fmt.Println(getInitials("Atmik Shetty"))
+	////	Functions with Multiple return values
+	//fmt.Println(getInitials("Atmik Shetty"))
 
+	//	Package Scope: Accessing things from different go files
+	// To run do go run main.go greetings.go
+	// To access things from main.go make sure to define it out of the main function
+	sayHello([]string{"Atmik Shetty", "Leo Messi"})
+
+	for _, v := range values {
+		fmt.Println(v)
+	}
+
+	scoring()
 }
+
+var score = 100
 
 func getInitials(n string) (string, string) {
 	s := strings.ToUpper(n)

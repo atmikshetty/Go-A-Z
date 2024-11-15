@@ -84,31 +84,59 @@ func main() {
 	//fmt.Println("Hello Atmik Shetty!!!")
 	//fmt.Println("Please practice DSA!!!")
 
-	age := 20
-	name := "Atmik Shetty"
-	salary := 99.12007516
-	//No need for a separate space go compiler does that automatically
-	fmt.Println("Age is", age)
-	fmt.Println("Name is", name)
-	fmt.Println("My name is", name, "and my age is", age)
+	//age := 20
+	//name := "Atmik Shetty"
+	//salary := 99.12007516
+	////No need for a separate space go compiler does that automatically
+	//fmt.Println("Age is", age)
+	//fmt.Println("Name is", name)
+	//fmt.Println("My name is", name, "and my age is", age)
+	//
+	////	Formatted strings: Printf... also does not automatically add a new line later
+	//// the "%" followed by something listed below are called format specifiers
+	//// %v to display any type variable - I prefer using this
+	//// %s for strings
+	//// %d for integer
+	//// %f for floats
+	//// %q for strings but gives "" quotes around the variable
+	//// %T gives the type of the variable
+	//fmt.Printf("My name is %v and my age is %v \n", name, age)
+	//fmt.Printf("My name is %s and my age is %d \n", name, age)
+	//fmt.Printf("My salary is %f \n", salary)
+	//fmt.Printf("My salary is %.2f \n", salary) // can specify upto how many values do you want
+	//fmt.Printf("My name is %q \n", name)
+	//fmt.Printf("my name is %T \n", name)
+	//
+	////	Sprintf: can save any formatted string
+	//var saving string = fmt.Sprintf("My name is %v and my age is %v \n", name, age)
+	//fmt.Println(saving)
 
-	//	Formatted strings: Printf... also does not automatically add a new line later
-	// the "%" followed by something listed below are called format specifiers
-	// %v to display any type variable - I prefer using this
-	// %s for strings
-	// %d for integer
-	// %f for floats
-	// %q for strings but gives "" quotes around the variable
-	// %T gives the type of the variable
-	fmt.Printf("My name is %v and my age is %v \n", name, age)
-	fmt.Printf("My name is %s and my age is %d \n", name, age)
-	fmt.Printf("My salary is %f \n", salary)
-	fmt.Printf("My salary is %.2f \n", salary) // can specify upto how many values do you want
-	fmt.Printf("My name is %q \n", name)
-	fmt.Printf("my name is %T \n", name)
+	//	Arrays.. fixed length cannot change
+	var ages [5]int = [5]int{1, 2, 3, 4, 5}
+	var ages1 = [5]int{1, 2, 3, 4, 5}
+	names := [3]string{"Atmik", "Dev", "Vedant"}
+	fmt.Println(ages, ages1, names)
+	fmt.Printf("Lenght of names is", len(names))
 
-	//	Sprintf: can save any formatted string
-	var saving string = fmt.Sprintf("My name is %v and my age is %v \n", name, age)
-	fmt.Println(saving)
+	//Array values can be changed but more elements cannot be added to the array
+	names[2] = "Shetty"
+	fmt.Println(names)
 
+	//	Slices... uses arrays under the hoods but are more flexible
+	var scores = []int{1, 2, 3, 4, 5, 6, 6, 8}
+	fmt.Println(scores)
+
+	// slices values can be modified and more values can also be added to it
+	scores = append(scores, 100)
+	fmt.Println(scores)
+
+	//	Ranges or Slicing
+	rangeOne := scores[1:3] // will print values from index 1 to 2, last index - 1 is always printed
+	fmt.Println(rangeOne)
+
+	rangeTwo := scores[2:] // everything from 2 to the end
+	fmt.Println(rangeTwo)
+
+	rangeThree := scores[:5] // from start to 5
+	fmt.Println(rangeThree)
 }

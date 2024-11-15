@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 // Theory: Read through this once
@@ -226,11 +227,21 @@ func main() {
 	//	fmt.Println("Cannot vote")
 	//}
 
-	//	Functions
-	hello("Atmik Shetty")
-	hello("Leo Messi")
-	cycleNames([]string{"Atmik Shetty", "Leo Messi"}, hello) // pass a slice and a function, note that () is not required since cycleNames is already handling the function call
-	fmt.Println(circleArea(3))
+	////	Functions
+	//hello("Atmik Shetty")
+	//hello("Leo Messi")
+	//cycleNames([]string{"Atmik Shetty", "Leo Messi"}, hello) // pass a slice and a function, note that () is not required since cycleNames is already handling the function call
+	//fmt.Println(circleArea(3))
+
+	//	Functions with Multiple return values
+	fmt.Println(getInitials("Atmik Shetty"))
+
+}
+
+func getInitials(n string) (string, string) {
+	s := strings.ToUpper(n)
+	names := strings.Split(s, " ") // split the input
+	return names[0], names[1]      // return, usually you write a conditional to check whether there are two returns
 }
 
 func hello(name string) {

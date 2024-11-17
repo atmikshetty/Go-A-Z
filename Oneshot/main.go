@@ -270,30 +270,55 @@ func main() {
 	//menu["Butter Chicken"] = 500
 	//fmt.Println(menu["Butter Chicken"]) // updated to 500
 
-	//	Pass by Value: This means that go makes a copy of the values when we pass it into a function
-	name := "Atmik"
-	fmt.Println("Original value:", name)
+	////	Pass by Value: This means that go makes a copy of the values when we pass it into a function
+	//name := "Atmik"
+	//fmt.Println("Original value:", name)
+	//
+	//updateName(name)                                              // should have updated the name to Shetty
+	//fmt.Println("Will not update og will update the copy:", name) // but still "Atmik" is printed this is because of the pass by value property, a copy is created rather than the og value being updated
+	//
+	////	One way to fix this is to make sure the function has a return type and it returns a value
+	//fmt.Println("Updated the og value:", updateNameReturn(name)) // updates the og value
+	//
+	//menu1 := map[string]float64{
+	//	"Vada Pav": 18,
+	//	"Samosa":   18,
+	//}
+	//fmt.Println("Original Menu:", menu1)
+	//
+	////	Call the update menu function
+	//updateMenu(menu1)
+	//fmt.Println("Updated Menu:", menu1) // vada pav price is updated
+	//
+	////	Notice how in case of maps instead of the copy being updated directly the og value is updated.
+	//// This is because strings, int, arrays, floats always create a copy and then update it
+	//// And maps, slices and functions create a copy from the pointer to the og data and then update it hence it directly update the og value, also called as call by "reference"
 
-	updateName(name)                                              // should have updated the name to Shetty
-	fmt.Println("Will not update og will update the copy:", name) // but still "Atmik" is printed this is because of the pass by value property, a copy is created rather than the og value being updated
+	// Pointers: a variable that stores the memory address of another variable, basically by using pointers you can access the og variable
+	//	In functions, maps, slices, functions go automatically does it for us but custom pointers can also be created
 
-	//	One way to fix this is to make sure the function has a return type and it returns a value
-	fmt.Println("Updated the og value:", updateNameReturn(name)) // updates the og value
+	name10 := "Atmik Shetty"
+	fmt.Println(name10)
+	fmt.Println("Memory address of name10 is:", &name10) // & is used to get the memory address for any value
 
-	menu1 := map[string]float64{
-		"Vada Pav": 18,
-		"Samosa":   18,
-	}
-	fmt.Println("Original Menu:", menu1)
+	//	Creating a Pointer
+	m := &name10                                       // a pointer pointing to the name10
+	fmt.Println("Memory address:", m)                  // this pointer has its own memory block but also stores the address for the name10 memory block
+	fmt.Println("Value at the memory address is:", *m) // through the " * " also called as "dereferencing the pointer" you can access the value at the pointer
 
-	//	Call the update menu function
-	updateMenu(menu1)
-	fmt.Println("Updated Menu:", menu1) // vada pav price is updated
+	//	Using the pointers within a function
+	// Working:
+	// 1. We created name10 variable with its own memory block
+	// 2. We then create a pointer to this variable which also has its own address block
+	// 3. On passing this pointer to the function another copy is created which also points to the og name10 variable
+	// 4. Using dereferencing we update the underlying value at the og memory address which the pointer points to
 
-	//	Notice how in case of maps instead of the copy being updated directly the og value is updated.
-	// This is because strings, int, arrays, floats always create a copy and then update it
-	// And maps, slices and structs create a copy from the pointer to the og data and then update it hence it directly update the og value, also called as call by "reference"
+	updateNamePointer(m)                                                // unlike the updateName function this will directly update the og value
+	fmt.Println("Updated value after passing it as a pointer:", name10) // will print updated value, this happened because of the use of pointers
+}
 
+func updateNamePointer(x *string) {
+	*x = "Atmik Gunapala Shetty" // * is used to dereference the pointer
 }
 
 func updateMenu(x map[string]float64) {

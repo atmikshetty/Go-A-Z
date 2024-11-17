@@ -247,28 +247,66 @@ func main() {
 	//
 	//scoring()
 
-	//	Maps: like dictionaries in python or objects in javascript
-	// keys and values in a single map must be of the same type
+	////	Maps: like dictionaries in python or objects in javascript
+	//// keys and values in a single map must be of the same type
+	//
+	//menu := map[string]float64{ // key-string, value-float
+	//	"Shwarma":        60,
+	//	"Platter":        150,
+	//	"Butter Chicken": 300,
+	//}
+	//fmt.Println(menu)
+	//
+	//// Can be accessed through the key as well
+	//fmt.Println("Price for Platter is:", menu["Platter"])
+	//fmt.Println("Price for Shwarma is:", menu["Shwarma"])
+	//
+	////Printing a map
+	//for key, value := range menu {
+	//	fmt.Println(key, value)
+	//}
+	//
+	////	Updating within a map
+	//menu["Butter Chicken"] = 500
+	//fmt.Println(menu["Butter Chicken"]) // updated to 500
 
-	menu := map[string]float64{ // key-string, value-float
-		"Shwarma":        60,
-		"Platter":        150,
-		"Butter Chicken": 300,
+	//	Pass by Value: This means that go makes a copy of the values when we pass it into a function
+	name := "Atmik"
+	fmt.Println("Original value:", name)
+
+	updateName(name)                                              // should have updated the name to Shetty
+	fmt.Println("Will not update og will update the copy:", name) // but still "Atmik" is printed this is because of the pass by value property, a copy is created rather than the og value being updated
+
+	//	One way to fix this is to make sure the function has a return type and it returns a value
+	fmt.Println("Updated the og value:", updateNameReturn(name)) // updates the og value
+
+	menu1 := map[string]float64{
+		"Vada Pav": 18,
+		"Samosa":   18,
 	}
-	fmt.Println(menu)
+	fmt.Println("Original Menu:", menu1)
 
-	// Can be accessed through the key as well
-	fmt.Println("Price for Platter is:", menu["Platter"])
-	fmt.Println("Price for Shwarma is:", menu["Shwarma"])
+	//	Call the update menu function
+	updateMenu(menu1)
+	fmt.Println("Updated Menu:", menu1) // vada pav price is updated
 
-	//Printing a map
-	for key, value := range menu {
-		fmt.Println(key, value)
-	}
+	//	Notice how in case of maps instead of the copy being updated directly the og value is updated.
+	// This is because strings, int, arrays, floats always create a copy and then update it
+	// And maps, slices and structs create a copy from the pointer to the og data and then update it hence it directly update the og value, also called as call by "reference"
 
-	//	Updating within a map
-	menu["Butter Chicken"] = 500
-	fmt.Println(menu["Butter Chicken"]) // updated to 500
+}
+
+func updateMenu(x map[string]float64) {
+	x["Vada Pav"] = 20
+}
+
+func updateNameReturn(x string) string {
+	x = "Shetty"
+	return x
+}
+
+func updateName(x string) {
+	x = "Shetty"
 }
 
 var score = 100

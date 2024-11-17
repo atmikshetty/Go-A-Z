@@ -13,12 +13,13 @@ type bill struct {
 func makeBill(name string) bill { // returns a bill type object
 	b := bill{
 		name:  name,
-		items: map[string]float64{"vada pav": 18, "tea": 10},
+		items: map[string]float64{},
 		tip:   0,
 	}
 	return b
 }
 
+// This is called a receiver function which is associated with a type like a struct
 // formatting the bill, simple functions can be called by anyone we want our function to be specifically used for the bill struct
 func (b bill) formatBill() string { // adding (b bill) makes sure that the function follows with our custom struct
 	fs := "Bill Breakdown: \n"
@@ -26,9 +27,25 @@ func (b bill) formatBill() string { // adding (b bill) makes sure that the funct
 
 	//	List the items
 	for k, v := range b.items {
-		fs += fmt.Sprintf("%-25v ... %v \n", k+":", v) // -25 give the spacing, between the values
+		fs += fmt.Sprintf("%-25v ... $%v \n", k+":", v) // -25 give the spacing, between the values
 		totalValue += v
 	}
-	fs += fmt.Sprintf("%-25v ... %v.2f", "total:", totalValue)
+
+	// Display Tip
+	fs += fmt.Sprintf("%-25v ... $%v \n", "tip:", b.tip)
+
+	// Display total
+	fs += fmt.Sprintf("%-25v ... $%0.2f", "total:", totalValue+b.tip)
 	return fs
+}
+
+// Function to add tips... simply calling the vals won't work so use it as a pointer
+// When working with structs you do not need to derefernce it, go automatically does it for you
+func (b *bill) updateTip(tip float64) {
+	b.tip = tip
+}
+
+// Function to add items to the menu
+func (b *bill) addItems(name string, price float64) {
+	b.items[name] = price
 }

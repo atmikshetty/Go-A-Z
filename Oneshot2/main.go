@@ -9,4 +9,6 @@ func main() {
 	//	 Try to create these within a better file for better code management
 	myBill := makeBill("Atmik's Bill")
 	fmt.Println(myBill)
+
+	fmt.Println(myBill.formatBill())
 }

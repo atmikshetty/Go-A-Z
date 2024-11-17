@@ -36,7 +36,7 @@ func createBill() bill {
 
 func promptOptions(b bill) {
 	reader := bufio.NewReader(os.Stdin)
-	option, _ := getInput("Choose a option(a - add item, s - save bill, t - add tip): ", reader)
+	option, _ := getInput("Choose a option(a - add item, s - save bill, d- see the bill, t - add tip): ", reader)
 
 	//	Switch case provide user to access options
 	switch option {
@@ -71,8 +71,12 @@ func promptOptions(b bill) {
 		fmt.Println("You chose to give:", tip)
 		promptOptions(b)
 	case "s":
-		fmt.Println(b.formatBill())
+		b.saveBill()
 		fmt.Println("Save the tip.")
+	case "d":
+		fmt.Println("Showing the Bill :-")
+		fmt.Println(b.formatBill())
+		promptOptions(b)
 	default:
 		fmt.Println("Invalid option")
 		promptOptions(b) // fires of the func and asks the user to choose something again

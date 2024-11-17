@@ -236,16 +236,39 @@ func main() {
 	////	Functions with Multiple return values
 	//fmt.Println(getInitials("Atmik Shetty"))
 
-	//	Package Scope: Accessing things from different go files
-	// To run do go run main.go greetings.go
-	// To access things from main.go make sure to define it out of the main function
-	sayHello([]string{"Atmik Shetty", "Leo Messi"})
+	////	Package Scope: Accessing things from different go files
+	//// To run do go run main.go greetings.go
+	//// To access things from main.go make sure to define it out of the main function
+	//sayHello([]string{"Atmik Shetty", "Leo Messi"})
+	//
+	//for _, v := range values {
+	//	fmt.Println(v)
+	//}
+	//
+	//scoring()
 
-	for _, v := range values {
-		fmt.Println(v)
+	//	Maps: like dictionaries in python or objects in javascript
+	// keys and values in a single map must be of the same type
+
+	menu := map[string]float64{ // key-string, value-float
+		"Shwarma":        60,
+		"Platter":        150,
+		"Butter Chicken": 300,
+	}
+	fmt.Println(menu)
+
+	// Can be accessed through the key as well
+	fmt.Println("Price for Platter is:", menu["Platter"])
+	fmt.Println("Price for Shwarma is:", menu["Shwarma"])
+
+	//Printing a map
+	for key, value := range menu {
+		fmt.Println(key, value)
 	}
 
-	scoring()
+	//	Updating within a map
+	menu["Butter Chicken"] = 500
+	fmt.Println(menu["Butter Chicken"]) // updated to 500
 }
 
 var score = 100
